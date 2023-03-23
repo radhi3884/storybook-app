@@ -1,0 +1,24 @@
+<section class="container">
+    <form action="" [formGroup]="userForm" (ngSubmit)="submitData()">
+        <div class="form-group">
+            <label for="">username:</label>
+            <input type="text" name="username" formControlName="username" required class="form-control">
+            <span class="text-danger" *ngIf="userForm.get('username')?.touched && userForm.get('username')?.errors?.['required']">
+                please enter username
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="">password:</label>
+            <input type="text" name="password" formControlName="password" required class="form-control">
+            <span class="text-danger" *ngIf="userForm.get('password')?.touched && userForm.get('password')?.errors?.['required']">
+                please enter password
+            </span>
+        </div>
+        <div class="form-group mt-3">
+            <button class="btn btn-success me-1">
+                <span *ngIf="loading"></span>
+                Login</button>
+            <button routerLink="/register" class="btn btn-primary">Register</button>
+        </div>
+    </form>
+</section>
